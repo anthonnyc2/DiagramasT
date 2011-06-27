@@ -8,5 +8,8 @@
  * @author orlandobcrra
  */
 public class NewClass {
+
+    public NewClass() {
+    }
     
 }
