@@ -10,7 +10,7 @@ public abstract class Figura {
     protected Polygon poligono;
     protected Point posicion;
     protected boolean seleccionada;
-
+    
     public boolean dentroFigura(Point p){
         return poligono.contains(p); 
     }

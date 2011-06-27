@@ -1,8 +1,3 @@
-/*
- * Compilador.java
- *
- * Created on 27/06/2011, 02:47:23 PM
- */
 package vista;
 
 import javax.swing.JFrame;

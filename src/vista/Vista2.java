@@ -2,6 +2,7 @@ package vista;
 
 import controlador.Controlador;
 import modelo.Compilador;
+import modelo.Interprete;
 import modelo.Modelo;
 
 /**
@@ -35,7 +36,7 @@ public class Vista2 extends javax.swing.JPanel {
         radioCompildor = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        interprete = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         Lienzo1 = new javax.swing.JPanel();
 
@@ -50,8 +51,8 @@ public class Vista2 extends javax.swing.JPanel {
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("Maquina");
 
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("Interprete");
+        buttonGroup1.add(interprete);
+        interprete.setText("Interprete");
 
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,14 +72,14 @@ public class Vista2 extends javax.swing.JPanel {
                     .addComponent(jRadioButton2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton4)
+                    .addComponent(interprete)
                     .addComponent(jRadioButton3))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(368, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButton2, jRadioButton3, jRadioButton4, radioCompildor});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {interprete, jRadioButton2, jRadioButton3, radioCompildor});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +94,7 @@ public class Vista2 extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton4))))
+                            .addComponent(interprete))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -126,8 +127,15 @@ public class Vista2 extends javax.swing.JPanel {
         if(radioCompildor.isSelected()){
             CompiladorEditor editor=new CompiladorEditor();
             editor.setVisible(true);
-            Compilador compilador=editor.getModelo();
-            controlador.anyadirFigura(compilador);
+            Compilador modelo=editor.getModelo();
+            controlador.anyadirFigura(modelo);
+            Lienzo1.repaint();
+        }
+        else if(interprete.isSelected()){
+             InterpreteEditor editor=new InterpreteEditor();
+            editor.setVisible(true);
+            Interprete modelo=editor.getModelo();
+            controlador.anyadirFigura(modelo);
             Lienzo1.repaint();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -135,11 +143,11 @@ public class Vista2 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Lienzo1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton interprete;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton radioCompildor;
     // End of variables declaration//GEN-END:variables
 }

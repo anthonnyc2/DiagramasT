@@ -33,9 +33,10 @@ public class Compilador extends Figura {
         g.drawString(fuente, posicion.x+20,posicion.y+5);
     }
 
-    public void setDatos(String fuente, String objeto, String implementacion) {
-        this.fuente = fuente;
-        this.objeto = objeto;
-        this.implementacion = implementacion;
+    //@Override
+    public void setDatos(String... datos) {
+        this.fuente = datos[0];
+        this.objeto = datos[1];
+        this.implementacion = datos[2];
     }
 }
